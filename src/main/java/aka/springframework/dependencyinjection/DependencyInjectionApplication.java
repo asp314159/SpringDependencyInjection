@@ -7,8 +7,11 @@ import aka.springframework.dependencyinjection.controllers.SetterInjectedControl
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+//use @ComponentScan if bean are defined package(s) other than current package/child packages or you can also use basePackageClasses to scan classes
+//@ComponentScan(basePackages = {"aka.springframework.dependencyinjection", "aka.springframework.demoComponentScan"})
 public class DependencyInjectionApplication {
 
     public static void main(String[] args) {
