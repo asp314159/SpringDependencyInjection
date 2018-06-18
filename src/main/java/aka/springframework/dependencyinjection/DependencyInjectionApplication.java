@@ -4,6 +4,7 @@ import aka.springframework.dependencyinjection.controllers.ConstructorInjectedCo
 import aka.springframework.dependencyinjection.controllers.MyController;
 import aka.springframework.dependencyinjection.controllers.PropertyInjectedController;
 import aka.springframework.dependencyinjection.controllers.SetterInjectedController;
+import aka.springframework.dependencyinjection.propertysource.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -20,9 +21,14 @@ public class DependencyInjectionApplication {
         //gets an instance of MyController using application context
         MyController controller = (MyController) ctx.getBean("myController");
 
-        System.out.println(controller.hello());
+        /*System.out.println(controller.hello());
         System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
         System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
-        System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+        System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());*/
+
+        FakeDataSource fakeDataSource = (FakeDataSource) ctx.getBean(FakeDataSource.class);
+        System.out.println(fakeDataSource.getUserName());
+        System.out.println(fakeDataSource.getPassword());
+        System.out.println(fakeDataSource.getUrl());
     }
 }
